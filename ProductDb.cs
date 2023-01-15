@@ -24,7 +24,6 @@ namespace WinFormRekrutacja
                 Console.WriteLine(ex.Message);
             }
 
-
         }
        
     }
