@@ -18,8 +18,10 @@ namespace WinFormRekrutacja
         }
 
         private void btnLoadFile_Click(object sender, EventArgs e)
-        {
+        {   
+
             Readfile read = new Readfile();
+            ProductDb productDb= new ProductDb();
             List<Product> products = new List<Product>();
             Product product = new Product();
             bindingSource1.DataSource = read.InputToDB();
@@ -44,6 +46,9 @@ namespace WinFormRekrutacja
     
                 products.Add(product);
             }
+
+            productDb.AddToDatabase(products);
+            
         }
 
         
