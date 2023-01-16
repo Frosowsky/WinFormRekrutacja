@@ -19,19 +19,34 @@ namespace WinFormRekrutacja
         }
 
         private void btnLoadFile_Click(object sender, EventArgs e)
-        {   
+        {
             Readfile read = new Readfile();
-            ProductDb productDb= new ProductDb();
+            ProductDb productDb = new ProductDb();
             List<Product> products = new List<Product>();
             MapProduct mapProduct = new MapProduct(read.ViewDataTable(products));
-            bindingSource1.DataSource = mapProduct.Map();           
+            bindingSource1.DataSource = mapProduct.Map();
             dataGridView1.DataSource = bindingSource1;
             productDb.AddToDatabase(mapProduct.Map());
-            dataGridView1.ReadOnly= true;
-            dataGridView1.Columns[3].ReadOnly = false;
-            }
-        
+            int editColumnsIndex = dataGridView1.Columns["Kod"].Index;
+            foreach (DataGridViewColumn columns in dataGridView1.Columns)
+            {
+                columns.ReadOnly = true;
+                if (columns.Index == editColumnsIndex)
+                {
+                    try
+                    {
+                        columns.ReadOnly = false;
+                    }
+                    catch(Exception ex) 
+                    {
+                    MessageBox.Show(ex.ToString());
+                    }
+                }               
+            };
+
+
         }
 
-        
+
+    }
 }
