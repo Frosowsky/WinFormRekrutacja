@@ -39,7 +39,7 @@
             // btnLoadFile
             // 
             this.btnLoadFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnLoadFile.Location = new System.Drawing.Point(12, 12);
+            this.btnLoadFile.Location = new System.Drawing.Point(12, 70);
             this.btnLoadFile.Name = "btnLoadFile";
             this.btnLoadFile.Size = new System.Drawing.Size(144, 44);
             this.btnLoadFile.TabIndex = 0;
@@ -49,6 +49,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 120);
             this.dataGridView1.Name = "dataGridView1";

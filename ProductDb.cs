@@ -20,13 +20,15 @@ namespace WinFormRekrutacja
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    var query = "Insert into ProductsTable VALUES (@Zdjęcie, @Zdjecie, @Kod, @Nazwa, @Ean, @Producent," +
+                    con.Open();
+                    var query = "INSERT INTO ProductsTable VALUES (@Zdjęcie, @ZdjecieDrugie, @Kod, @Nazwa, @Ean, @Producent," +
                         "@Stan, @Vat, @Waga, @JednostkaMagazynowa, @OpisHTML, @MinimumZamowienie, @NumerKatalogowy)";
                     SqlCommand sqlCommand = new SqlCommand(query, con);
-                    foreach(Product product in products)
+                    foreach (Product product in products)
                     {
+
                         sqlCommand.Parameters.AddWithValue("@Zdjęcie", product.Zdjęcie);
-                        sqlCommand.Parameters.AddWithValue("@Zdjecie", product.Zdjecie);
+                        sqlCommand.Parameters.AddWithValue("@ZdjecieDrugie", product.Photo);
                         sqlCommand.Parameters.AddWithValue("@Kod", product.Kod);
                         sqlCommand.Parameters.AddWithValue("@Nazwa", product.Nazwa);
                         sqlCommand.Parameters.AddWithValue("@Ean", product.Ean);
@@ -37,11 +39,11 @@ namespace WinFormRekrutacja
                         sqlCommand.Parameters.AddWithValue("@JednostkaMagazynowa", product.JednostkaMagazynowa);
                         sqlCommand.Parameters.AddWithValue("@OpisHTML", product.OpisHTML);
                         sqlCommand.Parameters.AddWithValue("@MinimumZamowienie", product.MinimumZamowienie);
-                        sqlCommand.Parameters.AddWithValue("@NumerKatalogowy", product.NumerKatalogowy);
-
+                        sqlCommand.Parameters.AddWithValue("@NumerKatalogowy", product.NumerKatalogowy);                        
+                        sqlCommand.ExecuteNonQuery();
+                        sqlCommand.Parameters.Clear();
                     }
-                    con.Open();
-                    sqlCommand.ExecuteNonQuery();
+                       
                     con.Close();
                 }
             }

@@ -20,7 +20,7 @@ namespace WinFormRekrutacja
             return dlg.FileName;
         }
 
-        public DataTable InputToDB()
+        public DataTable ViewDataTable(List<Product>productList)
         {   try
             {
             ProductDb productDb = new ProductDb();

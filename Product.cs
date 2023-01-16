@@ -9,10 +9,10 @@ namespace WinFormRekrutacja
     internal class Product
     {
         public string Zdjęcie { get; set; }
-        public string Zdjecie { get; set; }
+        public string Photo { get; set; }
         public int Kod { get; set; }
         public string Nazwa { get; set; }
-        public double Ean { get; set; }
+        public string Ean { get; set; }
         public string Producent { get; set; }
         public int Stan { get; set; }
         public int Vat { get; set; }
