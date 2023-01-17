@@ -9,7 +9,7 @@ namespace WinFormRekrutacja
 {
     internal class MapProduct
     {
-        public DataTable _dt { get; }
+        private  DataTable _dt { get; }
         public MapProduct(DataTable dt)
         {
             _dt = dt;

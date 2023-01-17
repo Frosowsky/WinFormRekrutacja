@@ -14,6 +14,37 @@ namespace WinFormRekrutacja
        
         private readonly string connectionString = "Data Source=DESKTOP-1NUMHB5\\SQLEXPRESS01;Initial Catalog=EltesDb;Integrated Security=True";
 
+        
+
+        public void UpdateToDatabaseValue(int value, int secondValue)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+
+                    con.Open();
+                    var query = "UPDATE ProductsTable SET Kod=@Kod where Kod = @OldKod";
+                    SqlCommand sqlCommand = new SqlCommand(query, con);
+                    sqlCommand.Parameters.AddWithValue("@Kod", value);
+                    sqlCommand.Parameters.AddWithValue("@OldKod", secondValue);
+                    sqlCommand.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Kod zaktualizowany");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+
+
+
+
+
         public void AddToDatabase(List<Product> products)
         {
             try
@@ -52,6 +83,20 @@ namespace WinFormRekrutacja
                 MessageBox.Show(ex.ToString());
             }
                 
+        }
+
+        public void UpdateFileInDatabase(List<Product> products)
+        {
+            try
+            {
+                
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
        
     }
