@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,14 +10,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace WinFormRekrutacja
 {
     public partial class Form1 : Form
     {
+        
         public Form1()
         {
             InitializeComponent();
+            logger.log("Odpalono aplikacje");
         }
+        Logger logger = new Logger();
         ProductDb productDb = new ProductDb();
         private void btnLoadFile_Click(object sender, EventArgs e)
         {
@@ -33,7 +38,7 @@ namespace WinFormRekrutacja
             catch (Exception ex)
             {
             MessageBox.Show(ex.Message);   
-            
+            logger.log(ex.Message); 
             }
 
         }
@@ -76,6 +81,7 @@ namespace WinFormRekrutacja
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                logger.log(ex.Message);
             }
 
         }
@@ -89,6 +95,7 @@ namespace WinFormRekrutacja
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                logger.log(ex.Message);
             }
         }
 
@@ -111,16 +118,28 @@ namespace WinFormRekrutacja
         private void button3_Click(object sender, EventArgs e)
         {
             try
-            {        
+            {   
                 Szukaj szukaj = new Szukaj();
                 szukaj.ShowDialog();
-                bindingSource1.DataSource = productDb.Search(szukaj.searchingWord).Tables["ProductsTable"].DefaultView;
+                if(productDb.Search(Convert.ToInt32(szukaj.searchingWord)).Tables["ProductsTable"].Rows.Count > 0) { 
+                
+               
+                bindingSource1.DataSource = productDb.Search(Convert.ToInt32(szukaj.searchingWord)).Tables["ProductsTable"].DefaultView;
                 dataGridView1.DataSource = bindingSource1;
+                
+                }
+                else
+                {
+                    MessageBox.Show("Brak wyników");
+                }
+
             }
 
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                
+                logger.log(ex.Message);
             }
         }
     }

@@ -36,7 +36,7 @@ namespace WinFormRekrutacja
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                throw new Exception(ex.Message);
             }
         }
 
@@ -76,7 +76,7 @@ namespace WinFormRekrutacja
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                throw new Exception(ex.Message);
             }
                 
         }
@@ -104,7 +104,7 @@ namespace WinFormRekrutacja
             }
         }
 
-        public DataSet Search(string txt)
+        public DataSet Search(int txt)
         {
             try
             {

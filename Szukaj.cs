@@ -31,15 +31,27 @@ namespace WinFormRekrutacja
                 ProductDb productDb = new ProductDb();
                 if (!string.IsNullOrEmpty(searchingWord))
                 {
-                    productDb.Search(searchingWord);
-                    Close();
+                    int number;
+                    bool success = int.TryParse(searchingWord, out number);
+                    if (success)
+                    {
+                        productDb.Search(Convert.ToInt32(searchingWord));
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wprowadzona wartość jest błędna");
+                    }
+
+
                 }
                 else
                 {
                     MessageBox.Show("Wartość jest pusta");
                 }
             }
-            catch(Exception ex)
+            
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
