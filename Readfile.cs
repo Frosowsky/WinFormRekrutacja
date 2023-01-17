@@ -20,6 +20,7 @@ namespace WinFormRekrutacja
             return dlg.FileName;
         }
 
+
         public DataTable ViewDataTable(List<Product>productList)
         {   try
             {
@@ -61,8 +62,8 @@ namespace WinFormRekrutacja
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                return null;
+
+                throw new Exception(ex.Message);
             }
          
         }

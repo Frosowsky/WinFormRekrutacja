@@ -192,6 +192,7 @@
             this.textBox1.Location = new System.Drawing.Point(186, 12);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(323, 57);
             this.textBox1.TabIndex = 14;
             // 
@@ -206,6 +207,7 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(186, 175);
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(323, 20);
             this.textBox4.TabIndex = 17;
             // 
@@ -213,6 +215,7 @@
             // 
             this.textBox5.Location = new System.Drawing.Point(186, 202);
             this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(323, 20);
             this.textBox5.TabIndex = 18;
             // 
@@ -220,6 +223,7 @@
             // 
             this.textBox6.Location = new System.Drawing.Point(186, 226);
             this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(323, 20);
             this.textBox6.TabIndex = 19;
             // 
@@ -227,6 +231,7 @@
             // 
             this.textBox7.Location = new System.Drawing.Point(186, 253);
             this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(323, 20);
             this.textBox7.TabIndex = 20;
             // 
@@ -234,6 +239,7 @@
             // 
             this.textBox8.Location = new System.Drawing.Point(186, 279);
             this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(323, 20);
             this.textBox8.TabIndex = 21;
             // 
@@ -241,6 +247,7 @@
             // 
             this.textBox9.Location = new System.Drawing.Point(186, 305);
             this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
             this.textBox9.Size = new System.Drawing.Size(323, 20);
             this.textBox9.TabIndex = 22;
             // 
@@ -248,6 +255,7 @@
             // 
             this.textBox10.Location = new System.Drawing.Point(186, 351);
             this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
             this.textBox10.Size = new System.Drawing.Size(323, 20);
             this.textBox10.TabIndex = 23;
             // 
@@ -255,6 +263,7 @@
             // 
             this.textBox11.Location = new System.Drawing.Point(186, 399);
             this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
             this.textBox11.Size = new System.Drawing.Size(323, 20);
             this.textBox11.TabIndex = 24;
             // 
@@ -262,6 +271,7 @@
             // 
             this.textBox12.Location = new System.Drawing.Point(186, 444);
             this.textBox12.Name = "textBox12";
+            this.textBox12.ReadOnly = true;
             this.textBox12.Size = new System.Drawing.Size(323, 20);
             this.textBox12.TabIndex = 25;
             // 
@@ -269,6 +279,7 @@
             // 
             this.textBox13.Location = new System.Drawing.Point(186, 488);
             this.textBox13.Name = "textBox13";
+            this.textBox13.ReadOnly = true;
             this.textBox13.Size = new System.Drawing.Size(323, 20);
             this.textBox13.TabIndex = 26;
             // 
@@ -277,6 +288,7 @@
             this.textBox2.Location = new System.Drawing.Point(186, 83);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(323, 57);
             this.textBox2.TabIndex = 27;
             // 
@@ -295,7 +307,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 601);
+            this.ClientSize = new System.Drawing.Size(544, 573);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox13);

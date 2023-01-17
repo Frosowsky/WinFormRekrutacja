@@ -83,6 +83,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Szukaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Szukaj.Designer.cs">
+      <DependentUpon>Szukaj.cs</DependentUpon>
+    </Compile>
     <Compile Include="MapProduct.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductDb.cs" />
@@ -94,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Szukaj.resx">
+      <DependentUpon>Szukaj.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

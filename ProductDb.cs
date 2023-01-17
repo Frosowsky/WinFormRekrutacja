@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net.Configuration;
@@ -40,11 +41,6 @@ namespace WinFormRekrutacja
         }
 
 
-
-
-
-
-
         public void AddToDatabase(List<Product> products)
         {
             try
@@ -74,7 +70,7 @@ namespace WinFormRekrutacja
                         sqlCommand.ExecuteNonQuery();
                         sqlCommand.Parameters.Clear();
                     }
-                       
+                    MessageBox.Show("Pomyślnie dodano plik do bazy danych");   
                     con.Close();
                 }
             }
@@ -85,17 +81,52 @@ namespace WinFormRekrutacja
                 
         }
 
-        public void UpdateFileInDatabase(List<Product> products)
+        public DataSet Refresh()
         {
             try
-            {
-                
+            {   DataSet ds = new DataSet();
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
 
+                    con.Open();
+                    var query = "Select * From ProductsTable";
+                    SqlDataAdapter da = new SqlDataAdapter(query, con);                 
+                    da.Fill(ds, "ProductsTable");         
+                    con.Close();
+                         
+                }
+                return ds;
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                 throw new Exception(ex.Message);
+            }
+        }
+
+        public DataSet Search(string txt)
+        {
+            try
+            {
+                DataGridView dataGridView = new DataGridView();
+                DataSet ds = new DataSet();
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+
+                    con.Open();
+                    var query = "Select * From ProductsTable where Kod = @Kod";
+                    SqlCommand sqlCommand = new SqlCommand(query, con);
+                    sqlCommand.Parameters.AddWithValue("@Kod", txt);
+                    SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
+                    da.Fill(ds, "ProductsTable");
+                    con.Close();
+                }
+                return ds;
+            }
+
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
        
